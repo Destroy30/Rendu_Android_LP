@@ -1,10 +1,12 @@
 package fr.iut.tp2_lp;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -42,7 +44,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         }
 
         public void setData(Message message) {
-            this.message.setText(message.userName+ " : \n"+message.content);
+            this.message.setText(message.userName+ " : \n"+message.content+"\n\n"+message.getTimeInformations());
             Glide.with(userImage.getContext())
                     .load(Message.GRAVTAR_PREFIX+Utils.md5(message.userEmail))
                     .apply(RequestOptions.circleCropTransform())
@@ -53,7 +55,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_message,parent,false);
+        View view;
+        if(viewType==1) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_message_user, parent, false);
+        }
+        else {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_message, parent, false);
+        }
         return new ViewHolder(view);
     }
 
@@ -70,5 +78,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public void setData(List<Message>messages) {
         this.messages=messages;
         this.notifyDataSetChanged();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return this.messages.get(position).sendFromCurrentUser() ? 1 : 0;
     }
 }

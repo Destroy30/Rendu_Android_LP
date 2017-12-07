@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ValueEventListener{
@@ -43,9 +44,9 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
         List<Message> datas=new ArrayList<Message>();
         this.mAdapter = new MessageAdapter(datas);
         this.recycle.setAdapter(this.mAdapter);
-        LinearLayoutManager layoutRecyle = new LinearLayoutManager(this);
-        layoutRecyle.setStackFromEnd(true);
-        this.recycle.setLayoutManager(layoutRecyle);
+        LinearLayoutManager layoutRecycle = new LinearLayoutManager(this);
+        layoutRecycle.setStackFromEnd(true);
+        this.recycle.setLayoutManager(layoutRecycle);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         mDatabaseRefrence = database.getReference("chat/messages");
         mDatabaseRefrence.addValueEventListener(this);
@@ -53,7 +54,8 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
             @Override
             public void onClick(View v) {
                 DatabaseReference newDbRef = mDatabaseRefrence.push();
-                newDbRef.setValue(new Message(sendMessage.getText().toString(),UserStorage.getUserName(),UserStorage.getEmail(),0L));
+                Date now = new Date();
+                newDbRef.setValue(new Message(sendMessage.getText().toString(),UserStorage.getUserName(),UserStorage.getEmail(),now.getTime()));
                 sendMessage.setText("");
             }
         });

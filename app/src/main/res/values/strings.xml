@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">TP2_LP</string>
+    <string name="app_name">Chatman</string>
     <string name="nom">Nom</string>
-    <string name="enregistrer">Enregistrer</string>
-    <string name="register_msg">Veuillez enregsitrer vos informations</string>
+    <string name="enregistrer">Connexion</string>
+    <string name="register_msg">Veuillez saisir vos informations</string>
     <string name="email_hint">toto@gmail.com</string>
 </resources>
