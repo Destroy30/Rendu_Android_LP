@@ -42,6 +42,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
         private CardView card;
         private ImageView userImage;
+        private ImageView sendedImage;
         private TextView message;
         private DatabaseReference messageRef;
 
@@ -71,16 +72,41 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
                 }
             });
             this.userImage = (ImageView) itemView.findViewById(R.id.TV_1);
+            this.sendedImage = (ImageView) itemView.findViewById(R.id.sendImage);
             this.message = (TextView) itemView.findViewById(R.id.TV_2);
         }
 
         public void setData(Message message) {
             this.messageRef=message.refDatabase;
-            this.message.setText(message.userName+ " : \n"+message.content+"\n\n"+message.getTimeInformations());
+            sendedImage.setImageDrawable(null);
+            String content = message.content;
+            String contentType=Utils.getMimeType(content);
+            if(contentType!=null && (contentType.equals("image/gif") || contentType.equals("image/png"))) {
+                formatImageMessage(message);
+            }
+            else {
+                formatNormalMessage(message);
+            }
+            formatUserIcon(message.userEmail);
+        }
+
+        private void formatUserIcon(String email) {
             Glide.with(userImage.getContext())
-                    .load(Message.GRAVTAR_PREFIX+Utils.md5(message.userEmail))
+                    .load(Message.GRAVTAR_PREFIX+Utils.md5(email))
                     .apply(RequestOptions.circleCropTransform())
                     .into(userImage);
+        }
+
+        private void formatNormalMessage(Message message) {
+            this.message.setText(message.userName+ " : \n"+message.content+"\n\n"+message.getTimeInformations());
+        }
+
+        private void formatImageMessage(Message message) {
+            this.message.setText(message.userName+" "+message.getTimeInformations()+" : ");
+            Glide.with(sendedImage.getContext())
+                    .load(message.content)
+                    .apply(RequestOptions.overrideOf(500,500))
+                    .into(sendedImage);
         }
 
     }

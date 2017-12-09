@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
 
     private RecyclerView recycle;
     private MessageAdapter mAdapter;
-    private EditText sendMessage;
+    private EditorImage sendMessage;
     private ImageButton sendButton;
     private static DatabaseReference mDatabaseRefrence;
 
@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
         }
         setContentView(R.layout.activity_main);
         this.recycle=(RecyclerView) findViewById(R.id.recyclerView);
-        this.sendMessage = (EditText) findViewById(R.id.inputEditText);
+        this.sendMessage = (EditorImage) findViewById(R.id.inputEditText);
+        this.sendMessage.setChat(this);
         this.sendButton = (ImageButton) findViewById(R.id.sendButton);
         List<Message> datas=new ArrayList<Message>();
         this.mAdapter = new MessageAdapter(datas);
@@ -56,13 +57,18 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
         this.sendButton.setOnClickListener(new Button.OnClickListener () {
             @Override
             public void onClick(View v) {
-                DatabaseReference newDbRef = mDatabaseRefrence.push();
-                Date now = new Date();
-                newDbRef.setValue(new Message(sendMessage.getText().toString(),UserStorage.getUserName(),UserStorage.getEmail(),now.getTime()));
+                send(sendMessage.getText().toString());
                 sendMessage.setText("");
-                recycle.smoothScrollToPosition(mAdapter.getItemCount());
             }
         });
+    }
+
+    public void send(String content) {
+        DatabaseReference newDbRef = mDatabaseRefrence.push();
+        Date now = new Date();
+        newDbRef.setValue(new Message(content,UserStorage.getUserName(),UserStorage.getEmail(),now.getTime()));
+        sendMessage.requestFocus();
+        recycle.smoothScrollToPosition(mAdapter.getItemCount());
     }
 
      public boolean onCreateOptionsMenu(Menu menu) {
