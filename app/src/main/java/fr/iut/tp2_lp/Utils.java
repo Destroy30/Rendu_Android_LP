@@ -41,21 +41,11 @@ public class Utils {
         return "";
     }
 
-    public static boolean containsURL(String content){
-        String REGEX = "\\b(https?)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
-        Pattern p = Pattern.compile(REGEX,Pattern.CASE_INSENSITIVE);
-        Matcher m = p.matcher(content);
-        return m.find();
-    }
-
-    public static String getValidExtensionFromURL(String url) {
-        if(url.endsWith(".gif")) {
-            return "gif";
-        }
-        if(url.endsWith(".png")) {
-            return "png";
-        }
-        return null;
+    public static boolean verifyEmail(String email) {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 
     public static String getMimeType(String url) {

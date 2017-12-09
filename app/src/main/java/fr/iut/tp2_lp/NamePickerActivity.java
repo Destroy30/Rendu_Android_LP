@@ -5,6 +5,7 @@ import android.accounts.AccountManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -27,9 +28,10 @@ public class NamePickerActivity extends AppCompatActivity {
 
     public static final String TAG = NamePickerActivity.class.getSimpleName();
 
-    EditText    mNameEditText;
+    EditText mNameEditText;
     EditText mEmailEditText;
     Button mSubmitButton;
+    TextView textIntro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +39,12 @@ public class NamePickerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_namepicker);
         mNameEditText=(EditText) findViewById(R.id.nameText);
         mEmailEditText=(EditText) findViewById(R.id.emailText);
+        textIntro=(TextView) findViewById(R.id.textIntro) ;
         autoGetEmail();
         mEmailEditText.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                String nameValue=mNameEditText.getText().toString().trim();
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER) && nameValue.length()>0) {
-                    pickedGoStorage();
-                    return true;
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    return pickedGoStorage();
                 }
                 return false;
             }
@@ -57,14 +58,23 @@ public class NamePickerActivity extends AppCompatActivity {
         });
     }
 
-    public void pickedGoStorage() {
+    public boolean pickedGoStorage() {
         String name = mNameEditText.getText().toString();
         String email = mEmailEditText.getText().toString();
+        if(name.trim().length()<=0 || email.trim().length()<=0) {
+            return false;
+        }
+        if(!Utils.verifyEmail(email)) {
+            textIntro.setTextColor(Color.RED);
+            textIntro.setText(R.string.invalidEmail);
+            return false;
+        }
         UserStorage.setUserDatas(name,email);
         UserStorage.saveUserInfo(this);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
+        return true;
     }
 
     public void autoGetEmail() {

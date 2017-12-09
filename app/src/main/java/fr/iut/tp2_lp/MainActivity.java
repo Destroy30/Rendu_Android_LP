@@ -1,6 +1,7 @@
 package fr.iut.tp2_lp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
     private MessageAdapter mAdapter;
     private EditorImage sendMessage;
     private ImageButton sendButton;
+    private ProgressBar chatLoading;
+    private TextView messageLoading;
     private static DatabaseReference mDatabaseRefrence;
 
     @Override
@@ -38,15 +43,19 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
         UserStorage.getUserInfo(this);
         if(UserStorage.getUserName()==null || UserStorage.getEmail()==null) {
             launchDataPicker();
+            finish();
         }
         setContentView(R.layout.activity_main);
         this.recycle=(RecyclerView) findViewById(R.id.recyclerView);
         this.sendMessage = (EditorImage) findViewById(R.id.inputEditText);
         this.sendMessage.setChat(this);
         this.sendButton = (ImageButton) findViewById(R.id.sendButton);
+        this.chatLoading = (ProgressBar) findViewById(R.id.progressBarChat);
+        this.chatLoading.setVisibility(View.VISIBLE);
+        this.messageLoading = (TextView) findViewById(R.id.progressBarMessage);
+        this.messageLoading.setVisibility(View.VISIBLE);
         List<Message> datas=new ArrayList<Message>();
         this.mAdapter = new MessageAdapter(datas);
-
         this.recycle.setAdapter(this.mAdapter);
         LinearLayoutManager layoutRecycle = new LinearLayoutManager(this);
         layoutRecycle.setStackFromEnd(true);
@@ -82,6 +91,12 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
                 UserStorage.removeUserInfo(this);
                 launchDataPicker();
                 return true;
+            case R.id.action_gravtar:
+                String url = "https://fr.gravatar.com/site/signup/";
+                Intent gravatarCreation = new Intent(Intent.ACTION_VIEW);
+                gravatarCreation.setData(Uri.parse(url));
+                startActivity(gravatarCreation);
+                return true;
         }
         return super.onOptionsItemSelected(item);
 
@@ -96,6 +111,8 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
             items.add(messageToAdd);
         }
         this.mAdapter.setData(items);
+        this.chatLoading.setVisibility(View.GONE);
+        this.messageLoading.setVisibility(View.GONE);
     }
 
 

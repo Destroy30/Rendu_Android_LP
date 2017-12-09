@@ -31,7 +31,7 @@ public class Message {
     }
 
     public boolean sendFromCurrentUser() {
-        return (userName.equals(UserStorage.getUserName()) && (userEmail.equals(UserStorage.getEmail())));
+        return (userEmail!=null && userEmail.equals(UserStorage.getEmail()));
     }
 
     public String getTimeInformations() {
@@ -39,23 +39,28 @@ public class Message {
         Date now = new Date();
         long diffTime = now.getTime()-sended.getTime();
         int secondes = (int) TimeUnit.MILLISECONDS.toSeconds(diffTime);
+        String pluriel;
         if(secondes<1) {
             return "(A l'instant)";
         }
         else if(secondes<60) {
-            return "(Il y a "+secondes+" secondes)";
+            pluriel = secondes > 1 ? "s" : "";
+            return "(Il y a "+secondes+" seconde"+pluriel+")";
         }
         int minutes = (int) TimeUnit.MILLISECONDS.toMinutes(diffTime);
         if(minutes<60) {
-            return "(Il y a "+minutes+" minutes)";
+            pluriel = minutes > 1 ? "s" : "";
+            return "(Il y a "+minutes+" minute"+pluriel+")";
         }
         int heures = (int) TimeUnit.MILLISECONDS.toHours(diffTime);
         if(heures<24) {
-            return "(Il y a "+heures+" heures)";
+            pluriel = heures > 1 ? "s" : "";
+            return "(Il y a "+heures+" heure"+pluriel+")";
         }
         int jours = (int) TimeUnit.MILLISECONDS.toDays(diffTime);
         if(jours<365) {
-            return "(Il y a "+jours+" jours)";
+            pluriel = jours > 1 ? "s" : "";
+            return "(Il y a "+jours+" jour"+pluriel+")";
         }
         return "(Il y a plus d'un an)";
     }

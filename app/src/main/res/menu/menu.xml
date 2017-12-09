@@ -9,4 +9,10 @@
     >
     </item>
 
+    <item android:id="@+id/action_gravtar"
+        android:title="@string/gravatar"
+        androidFollow:showAsAction="withText"
+        >
+    </item>
+
 </menu>

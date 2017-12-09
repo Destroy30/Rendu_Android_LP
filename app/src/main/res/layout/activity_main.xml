@@ -4,6 +4,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal">
+            <ProgressBar
+                android:id="@+id/progressBarChat"
+                android:visibility="gone"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/progressBarMessage"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/loadingMessage"/>
+        </RelativeLayout>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="0dp"
@@ -13,16 +32,14 @@
             app:layout_constraintBottom_toTopOf="@+id/linearContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintTop_toTopOf="parent" />
         <LinearLayout
             android:id="@+id/linearContainer"
-            android:layout_width="360dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteX="24dp">
+            app:layout_constraintEnd_toEndOf="parent">
             <fr.iut.tp2_lp.EditorImage
                 android:id="@+id/inputEditText"
                 android:layout_weight="2"
