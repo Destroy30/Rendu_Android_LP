@@ -4,4 +4,9 @@
     <string name="enregistrer">Connexion</string>
     <string name="register_msg">Veuillez saisir vos informations</string>
     <string name="email_hint">toto@gmail.com</string>
+    <string name="logout">Deconnexion</string>
+    <string name="deleteCard">Voulez vous supprimer ce message ?</string>
+    <string name="deleteTitle">Supprimer un message</string>
+    <string name="validerDelete">Oui</string>
+    <string name="invaliderDelete">Non</string>
 </resources>

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
         this.sendButton = (ImageButton) findViewById(R.id.sendButton);
         List<Message> datas=new ArrayList<Message>();
         this.mAdapter = new MessageAdapter(datas);
+
         this.recycle.setAdapter(this.mAdapter);
         LinearLayoutManager layoutRecycle = new LinearLayoutManager(this);
         layoutRecycle.setStackFromEnd(true);
@@ -57,19 +60,38 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
                 Date now = new Date();
                 newDbRef.setValue(new Message(sendMessage.getText().toString(),UserStorage.getUserName(),UserStorage.getEmail(),now.getTime()));
                 sendMessage.setText("");
+                recycle.smoothScrollToPosition(mAdapter.getItemCount());
             }
         });
+    }
+
+     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                UserStorage.removeUserInfo(this);
+                launchDataPicker();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
         List<Message> items = new ArrayList<>();
         for(DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-            items.add(postSnapshot.getValue(Message.class));
+            Message messageToAdd = postSnapshot.getValue(Message.class);
+            messageToAdd.refDatabase=postSnapshot.getRef();
+            items.add(messageToAdd);
         }
         this.mAdapter.setData(items);
-        recycle.smoothScrollToPosition(mAdapter.getItemCount());
     }
+
 
     @Override
     public void onCancelled(DatabaseError databaseError) {
@@ -79,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements ValueEventListene
     public void launchDataPicker() {
         Intent intent = new Intent(this, NamePickerActivity.class);
         startActivity(intent);
-        finish();
     }
+
+
 }

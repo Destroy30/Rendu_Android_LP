@@ -1,5 +1,7 @@
 package fr.iut.tp2_lp;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -13,6 +15,7 @@ public class Message {
     public String content;
     public String userEmail;
     public Long timestamp;
+    public DatabaseReference refDatabase;
 
     public static String GRAVTAR_PREFIX = "https://www.gravatar.com/avatar/";
 

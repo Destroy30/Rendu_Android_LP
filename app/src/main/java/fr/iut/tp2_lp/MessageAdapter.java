@@ -1,5 +1,8 @@
 package fr.iut.tp2_lp;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -8,9 +11,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,22 +40,49 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
+        private CardView card;
         private ImageView userImage;
         private TextView message;
+        private DatabaseReference messageRef;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
+            this.card = (CardView) itemView.findViewById(R.id.cardRow);
+            this.card.setOnLongClickListener(new View.OnLongClickListener() {
+
+                @Override
+                public boolean onLongClick(View arg0) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(card.getContext());
+                    builder.setMessage(R.string.deleteCard)
+                            .setTitle(R.string.deleteTitle);
+                    builder.setPositiveButton(R.string.validerDelete, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            messageRef.removeValue();
+                        }
+                    });
+                    builder.setNegativeButton(R.string.invaliderDelete, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {}
+                    });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                    return true;
+
+                }
+            });
             this.userImage = (ImageView) itemView.findViewById(R.id.TV_1);
             this.message = (TextView) itemView.findViewById(R.id.TV_2);
         }
 
         public void setData(Message message) {
+            this.messageRef=message.refDatabase;
             this.message.setText(message.userName+ " : \n"+message.content+"\n\n"+message.getTimeInformations());
             Glide.with(userImage.getContext())
                     .load(Message.GRAVTAR_PREFIX+Utils.md5(message.userEmail))
                     .apply(RequestOptions.circleCropTransform())
                     .into(userImage);
         }
+
     }
 
 

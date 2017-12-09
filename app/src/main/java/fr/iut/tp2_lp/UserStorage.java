@@ -48,6 +48,13 @@ public class UserStorage {
         UserStorage.setUserDatas(name,email);
     }
 
+    public static void removeUserInfo(Context context) {
+        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+        editor.remove("USER_NAME");
+        editor.remove("USER_EMAIL");
+        editor.apply();
+    }
+
 
 
 }
