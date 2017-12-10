@@ -93,13 +93,9 @@ La seconde **(Bonus)** permet de se créer un gravatar, elle redirige vers le si
 
 ## Instructions d'installation
 
-Pour installer l'application, téléchargez simplement l'apk disponnible ici et insatllez là via votre système
+Pour installer l'application, téléchargez simplement l'apk disponnible [via ce lien](https://github.com/Destroy30/Rendu_Android_LP/raw/android/chatman.apk) et insatllez là via votre système
 
-[un lien](https://github.com/Destroy30/Rendu_Android_LP/raw/android/chatman.apk)
-
-Vous pouvez également la télécharger, ou accèder au repository complet, par l'adresse suivante
-
-[un lien](https://github.com/Destroy30/Rendu_Android_LP/tree/master)
+Vous pouvez également la télécharger, ou accèder au repository complet, par [l'adresse suivante](https://github.com/Destroy30/Rendu_Android_LP/tree/master)
 
 Pour installer l'apk sur un emulateur, vous pouvez executer la commande suivante, une fois votre emulateur
 
