@@ -10,6 +10,31 @@ Chatman est une application permettant de discuter avec les différents utilisat
 
 ![playstore](https://user-images.githubusercontent.com/22858977/33801639-8a43aa64-dd61-11e7-9e61-7dd83dfb9c9c.png)
 
+##Sommaire
+
+[Fonctionnalités](#fonctionnalités)
+
+  -[Ecran de chargement]
+  -[Enregistrement du compte courant]
+  -[Detection email incorrect]
+  -[Ecran de chargmeent du chat]
+  -[Discussion]
+  -[Reperage des messages de l'utilisateur]
+  -[Affichage du gravatar]
+  -[Date relative des messages]
+  -[Supression de messages]
+  -[Envoi et recepetion de GIF(s) ou d'images simples]
+  -[Menu et options]
+  
+[Instructions d'installation]
+
+[License]
+
+[Conclusion sur le travail pour ce TP]
+  
+  
+  
+
 ## Fonctionnalités
 
 ### Ecran de chargement (Splash Screen) (Bonus)
@@ -43,11 +68,11 @@ Au lieu de laisser une page blanche, l'application affiche une animation et un t
 
 L'application permet de s'envoyer des messages et d'en reçevoir
 
-### Reprage des messages de l'utilisateur
+### Reperage des messages de l'utilisateur
 
 Les messages de l'utilisateurs sont placés à droite, ceux des autres à gauche
 
-### Affiche du gravatar
+### Affichage du gravatar
 
 Chaque membre connecté par son email possède un gravtar (ou si l'email n'est pas associé ou reconnue, un avatar par défaut)
 
@@ -116,6 +141,8 @@ J'ai rajouté moi-même quelques fonctionnalités bonus supplémentaires (indiqu
 - La verification du format de l'email
 - L'écran de chargement du chat
 - L'option de création d'un gravatar
+
+Le code est également documenté et commenté par endroits
 
 
 
