@@ -10,27 +10,27 @@ Chatman est une application permettant de discuter avec les différents utilisat
 
 ![playstore](https://user-images.githubusercontent.com/22858977/33801639-8a43aa64-dd61-11e7-9e61-7dd83dfb9c9c.png)
 
-##Sommaire
+## Sommaire
 
 [Fonctionnalités](#fonctionnalités)
 
-  -[Ecran de chargement]
-  -[Enregistrement du compte courant]
-  -[Detection email incorrect]
-  -[Ecran de chargmeent du chat]
-  -[Discussion]
-  -[Reperage des messages de l'utilisateur]
-  -[Affichage du gravatar]
-  -[Date relative des messages]
-  -[Supression de messages]
-  -[Envoi et recepetion de GIF(s) ou d'images simples]
-  -[Menu et options]
+  -[Ecran de chargement](#ecran-de-chargement-splash-screen-bonus)
+  -[Enregistrement du compte courant](#enregistrement-du-compte-courant)
+  -[Detection email incorrect](#detection-email-incorrect-bonus)
+  -[Ecran de chargmeent du chat](#ecran-de-chargmeent-du-chat-bonus)
+  -[Discussion](#discussion)
+  -[Reperage des messages de l'utilisateur](#reperage-des-messages-de-lutilisateur)
+  -[Affichage du gravatar](#affichage-du-gravatar)
+  -[Date relative des messages](#date-relative-des-messages)
+  -[Supression de messages](#supression-de-messages)
+  -[Envoi et recepetion de GIF(s) ou d'images simples](#supression-de-messages)
+  -[Menu et options](#menu-et-options)
   
-[Instructions d'installation]
+[Instructions d'installation](#instructions-dinstallation)
 
-[License]
+[License](#license)
 
-[Conclusion sur le travail pour ce TP]
+[Conclusion sur le travail pour ce TP](#conclusion-sur-le-travail-pour-ce-tp)
   
   
   
