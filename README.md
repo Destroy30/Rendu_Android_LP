@@ -12,7 +12,7 @@ Chatman est une application permettant de discuter avec les différents utilisat
 
 ## Sommaire
 
-[Fonctionnalités](#fonctionnalités)
+- [Fonctionnalités](#fonctionnalités)
 
   - [Ecran de chargement](#ecran-de-chargement-splash-screen-bonus)
   - [Enregistrement du compte courant](#enregistrement-du-compte-courant)
@@ -26,15 +26,13 @@ Chatman est une application permettant de discuter avec les différents utilisat
   - [Envoi et recepetion de GIF(s) ou d'images simples](#supression-de-messages)
   - [Menu et options](#menu-et-options)
   
-[Instructions d'installation](#instructions-dinstallation)
+- [Instructions d'installation](#instructions-dinstallation)
 
-[License](#license)
+- [License](#license)
 
-[Conclusion sur le travail pour ce TP](#conclusion-sur-le-travail-pour-ce-tp)
+- [Conclusion sur le travail pour ce TP](#conclusion-sur-le-travail-pour-ce-tp)
   
   
-  
-
 ## Fonctionnalités
 
 ### Ecran de chargement (Splash Screen) (Bonus)
