@@ -1,7 +1,14 @@
 # Chatman
+
 Rendu pour le TP android de la LP
 
 Chatman est une application permettant de discuter avec les différents utilisateurs de cette application
+
+## Icône
+
+![icone](https://user-images.githubusercontent.com/22858977/33801636-808c3fcc-dd61-11e7-9ff0-fce3c2924ce8.png)
+
+![playstore](https://user-images.githubusercontent.com/22858977/33801639-8a43aa64-dd61-11e7-9e61-7dd83dfb9c9c.png)
 
 ## Fonctionnalités
 
@@ -82,6 +89,39 @@ La première permet de se déconnecter et de supprimer les informations sauvegar
 La seconde **(Bonus)** permet de se créer un gravatar, elle redirige vers le site en question
 
 ![gravatar site](https://user-images.githubusercontent.com/22858977/33801505-811844c6-dd5d-11e7-98ff-23b3594b8a39.png)
+
+
+## Instructions d'installation
+
+Pour installer l'application, téléchargez simplement l'apk disponnible ici et insatllez là via votre système
+
+[un lien](https://github.com/Destroy30/Rendu_Android_LP/raw/android/chatman.apk)
+
+Vous pouvez également la télécharger, ou accèder au repository complet, par l'adresse suivante
+
+[un lien](https://github.com/Destroy30/Rendu_Android_LP/tree/master)
+
+Pour installer l'apk sur un emulateur, vous pouvez executer la commande suivante, une fois votre emulateur
+
+*avd -install chatman.apk*
+
+## License
+
+Le projet chatman est libre de droits.
+Vous pouvez donc le télécharger, l'utiliser, le mettre à jour, en reprdnre le code source comme vous souhaitez
+
+
+## Conclusion sur le travail pour ce TP
+
+Pour ce qui est des fonctionnalités demandés, j'ai tout implémenté, y compris les bonus.
+J'ai rajouté moi-même quelques fonctionnalités bonus supplémentaires (indiquées par **Bonus**) :
+
+- L'écran de chargement (SplashScreen)
+- La verification du format de l'email
+- L'écran de chargement du chat
+- L'option de création d'un gravatar
+
+
 
 
 
