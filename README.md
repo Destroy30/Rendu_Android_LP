@@ -14,17 +14,17 @@ Chatman est une application permettant de discuter avec les différents utilisat
 
 [Fonctionnalités](#fonctionnalités)
 
-  -[Ecran de chargement](#ecran-de-chargement-splash-screen-bonus)
-  -[Enregistrement du compte courant](#enregistrement-du-compte-courant)
-  -[Detection email incorrect](#detection-email-incorrect-bonus)
-  -[Ecran de chargmeent du chat](#ecran-de-chargmeent-du-chat-bonus)
-  -[Discussion](#discussion)
-  -[Reperage des messages de l'utilisateur](#reperage-des-messages-de-lutilisateur)
-  -[Affichage du gravatar](#affichage-du-gravatar)
-  -[Date relative des messages](#date-relative-des-messages)
-  -[Supression de messages](#supression-de-messages)
-  -[Envoi et recepetion de GIF(s) ou d'images simples](#supression-de-messages)
-  -[Menu et options](#menu-et-options)
+  - [Ecran de chargement](#ecran-de-chargement-splash-screen-bonus)
+  - [Enregistrement du compte courant](#enregistrement-du-compte-courant)
+  - [Detection email incorrect](#detection-email-incorrect-bonus)
+  - [Ecran de chargmeent du chat](#ecran-de-chargmeent-du-chat-bonus)
+  - [Discussion](#discussion)
+  - [Reperage des messages de l'utilisateur](#reperage-des-messages-de-lutilisateur)
+  - [Affichage du gravatar](#affichage-du-gravatar)
+  - [Date relative des messages](#date-relative-des-messages)
+  - [Supression de messages](#supression-de-messages)
+  - [Envoi et recepetion de GIF(s) ou d'images simples](#supression-de-messages)
+  - [Menu et options](#menu-et-options)
   
 [Instructions d'installation](#instructions-dinstallation)
 
