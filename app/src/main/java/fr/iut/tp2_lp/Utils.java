@@ -13,8 +13,14 @@ import java.util.regex.Pattern;
 
 public class Utils {
 
+    /**
+     * Methode de hachage permettant de transfomer du texte en md5
+     * @param s : String à hacher (dans notre cas d'applicaiton, un email)
+     * @return
+     */
+
     public static final String md5(final String s) {
-        if(s == null) {
+        if(s == null) { //Si le string est null, on renvoi le hachage renvoyant au profil par défaut sur gravtar
             return "205e460b479e2e5b48aec07710c08d50?f=y";
         }
         final String MD5 = "MD5";
@@ -41,13 +47,12 @@ public class Utils {
         return "";
     }
 
-    public static boolean verifyEmail(String email) {
-        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
-        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
-
+    /**
+     * Cette méthode permet de récupérer le type de fichier associé à une url
+     * C'est utile pour savoir si on doit convertir un lien reçu en image (png ou gif) et l'afficher dans l'adpter et le holder
+     * @param url url du fichier
+     * @return Le type de données du fichier
+     */
     public static String getMimeType(String url) {
         String type = null;
         String extension = MimeTypeMap.getFileExtensionFromUrl(url);
