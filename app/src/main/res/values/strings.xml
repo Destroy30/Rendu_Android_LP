@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Chatman</string>
+    <string name="nom">Nom</string>
+    <string name="enregistrer">Connexion</string>
+    <string name="register_msg">Bienvenue dans Chatman !\nVeuillez saisir vos informations de connexion</string>
+    <string name="email_hint">toto@gmail.com</string>
+    <string name="logout">Deconnexion</string>
+    <string name="gravatar">Créer son gravatar</string>
+    <string name="deleteCard">Voulez vous supprimer ce message ?</string>
+    <string name="deleteTitle">Supprimer un message</string>
+    <string name="validerDelete">Oui</string>
+    <string name="invaliderDelete">Non</string>
+    <string name="invalidEmail">Le format de l\'email spécifié est invalide</string>
+    <string name="loadingMessage">Chargement du chat...</string>
+</resources>
