@@ -1,5 +1,7 @@
 # Chatman
 
+*Autheur : **Malo Gasquet** *
+
 Rendu pour le TP android de la LP
 
 Chatman est une application permettant de discuter avec les différents utilisateurs de cette application
