@@ -1,6 +1,6 @@
 # Chatman
 
-*Autheur : **Malo Gasquet** *
+*(Autheur : **Malo Gasquet**)*
 
 Rendu pour le TP android de la LP
 
