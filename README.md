@@ -18,6 +18,7 @@ Chatman est une application permettant de discuter avec les différents utilisat
 
   - [Ecran de chargement](#ecran-de-chargement-splash-screen-bonus)
   - [Enregistrement du compte courant](#enregistrement-du-compte-courant)
+  - [Recherche d'email automatique](#recherche-demail-automatique)
   - [Detection email incorrect](#detection-email-incorrect-bonus)
   - [Ecran de chargmeent du chat](#ecran-de-chargmeent-du-chat-bonus)
   - [Discussion](#discussion)
@@ -53,7 +54,7 @@ Elle permet de rentrer son login et son email pour se connecter
 
 ### Recherche d'email automatique
 
-L'application recherche parmis les comptes de l'appareil,une adresse mail enregistrée et pré-remplie le champ correspondant si il y en a une
+L'application recherche parmis les comptes de l'appareil une adresse mail enregistrée et pré-remplit le champ correspondant si il y en a une
 
 ![email préchargé](https://user-images.githubusercontent.com/22858977/33801834-0df56a72-dd68-11e7-9e36-1e8f5dac5499.png)
 
