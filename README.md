@@ -50,6 +50,13 @@ Elle permet de rentrer son login et son email pour se connecter
 
 ![compte](https://user-images.githubusercontent.com/22858977/33801498-7fcc8dac-dd5d-11e7-9aa7-51dc14dcbace.png)
 
+
+### Recherche d'email automatique
+
+L'application recherche parmis les comptes de l'appareil,une adresse mail enregistrée et pré-remplie le champ correspondant si il y en a une
+
+![email préchargé](https://user-images.githubusercontent.com/22858977/33801834-0df56a72-dd68-11e7-9e36-1e8f5dac5499.png)
+
 ### Detection email incorrect (Bonus)
 
 L'application permet de détecter si l'email entré n'a pas un format valide, affiche un message d'rreur et attend que l'utilisateur corrige sa saisie.
