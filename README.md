@@ -26,7 +26,7 @@ Chatman est une application permettant de discuter avec les différents utilisat
   - [Affichage du gravatar](#affichage-du-gravatar)
   - [Date relative des messages](#date-relative-des-messages)
   - [Supression de messages](#supression-de-messages)
-  - [Envoi et recepetion de GIF(s) ou d'images simples](#supression-de-messages)
+  - [Envoi et recepetion de GIF(s) ou d'images simples](#envoi-et-recepetion-de-gifs-ou-dimages-simples)
   - [Menu et options](#menu-et-options)
   
 - [Instructions d'installation](#instructions-dinstallation)
